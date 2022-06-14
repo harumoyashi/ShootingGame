@@ -403,6 +403,7 @@ GameObject:
   - component: {fileID: 388216933}
   - component: {fileID: 388216934}
   - component: {fileID: 388216935}
+  - component: {fileID: 388216936}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -528,6 +529,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 2236898814019738238, guid: 82b8795c49bc0b54390aac4be86f310f, type: 3}
+  timer: 1
+  delayTimer: 1
+--- !u!114 &388216936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388216928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4d6e2b4a88a3494b819fbbd4b3f77fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 0}
+  bulletWayNum: 3
+  bulletWaySpace: 30
   timer: 1
   delayTimer: 1
 --- !u!1 &703416902
