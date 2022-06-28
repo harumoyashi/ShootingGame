@@ -51,7 +51,7 @@ public class EnemyFixedShot : MonoBehaviour
         if (nowTimer <= 0.0f)
         {
             //角度調整用変数
-            float bulletWaySpaceSplit = 0;
+            float bulletWaySpaceSplit = 180;
 
             //1回で発射する弾数分だけループする
             for (int i = 0; i < bulletWayNum; i++)

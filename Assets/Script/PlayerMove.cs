@@ -53,26 +53,34 @@ public class PlayerMove : MonoBehaviour
     {
         //ワールド座標取得
         Vector3 pos = transform.position;
+        //移動速度
+        float speed = 0.02f;
+
+        //SHIFT押してる間低速移動
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = 0.01f;
+        }
 
         //移動処理
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            pos.x += 0.01f;
+            pos.x += speed;
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            pos.x -= 0.01f;
+            pos.x -= speed;
         }
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            pos.z += 0.01f;
+            pos.z += speed;
         }
 
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            pos.z -= 0.01f;
+            pos.z -= speed;
         }
 
         //プレイヤーのワールド座標に代入

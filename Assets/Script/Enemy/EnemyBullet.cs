@@ -56,8 +56,9 @@ public class EnemyBullet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //もし当たったオブジェクトのタグがPlayer or PlayerBodyだったら
-        if (other.gameObject.tag == "Player" || other.gameObject.tag == "PlayerBody")
+        if (other.gameObject.tag == "Player"/* || other.gameObject.tag == "PlayerBody"*/)
         {
+            other.GetComponent<Player>().Damage();
             //自分を消滅させる
             Destroy(this.gameObject);
         }

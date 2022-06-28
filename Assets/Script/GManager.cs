@@ -7,14 +7,20 @@ public class GManager : MonoBehaviour
     //敵の数数える用変数
     private GameObject[] enemy;
 
+    private GameObject[] player;
+
     //パネルを登録
-    public GameObject panel;
+    public GameObject clearPanel;
+    public GameObject gameoverPanel;
+
+    bool isGameover = false;
 
     // Start is called before the first frame update
     void Start()
     {
         //パネルを隠す
-        panel.SetActive(false);
+        clearPanel.SetActive(false);
+        gameoverPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -24,9 +30,20 @@ public class GManager : MonoBehaviour
         enemy = GameObject.FindGameObjectsWithTag("Enemy");
 
         //シーンに1匹もEnemyがいなくなったらパネル表示
-        if(enemy.Length == 0)
+        if(enemy.Length == 0&& isGameover == false)
         {
-            panel.SetActive(true);
+            clearPanel.SetActive(true);
+        }
+
+        player = GameObject.FindGameObjectsWithTag("Player");
+        if (player.Length == 0)
+        {
+            isGameover = true;
+            for (int i = 0; i < enemy.Length; i++)
+            {
+                GameObject.Destroy(enemy[i]);
+            }
+            gameoverPanel.SetActive(true);
         }
     }
 }
