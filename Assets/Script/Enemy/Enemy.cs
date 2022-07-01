@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public GameManager gameManager;
+
     //Enemyの体力用変数
     private int enemyHp;
 
@@ -12,6 +14,9 @@ public class Enemy : MonoBehaviour
     {
         //生成時に体力を指定
         enemyHp = 3;
+
+        GameObject managerObj = GameObject.Find("GameManager");
+        gameManager = managerObj.GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -20,6 +25,8 @@ public class Enemy : MonoBehaviour
         //HP0になったら消滅
         if (enemyHp <= 0)
         {
+            //スコア加算
+            gameManager.ScoreCount();
             Destroy(this.gameObject);
         }
     }

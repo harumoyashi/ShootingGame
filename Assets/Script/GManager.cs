@@ -13,7 +13,7 @@ public class GManager : MonoBehaviour
     public GameObject clearPanel;
     public GameObject gameoverPanel;
 
-    bool isGameover = false;
+    public int gameScene = 0; //0:play,1:clear,2:gameover
 
     // Start is called before the first frame update
     void Start()
@@ -30,15 +30,16 @@ public class GManager : MonoBehaviour
         enemy = GameObject.FindGameObjectsWithTag("Enemy");
 
         //シーンに1匹もEnemyがいなくなったらパネル表示
-        if(enemy.Length == 0&& isGameover == false)
+        if (enemy.Length == 0 && gameScene == 0)
         {
+            gameScene = 1;
             clearPanel.SetActive(true);
         }
 
         player = GameObject.FindGameObjectsWithTag("Player");
-        if (player.Length == 0)
+        if (player.Length == 0 && gameScene != 1)
         {
-            isGameover = true;
+            gameScene = 2;
             for (int i = 0; i < enemy.Length; i++)
             {
                 GameObject.Destroy(enemy[i]);
