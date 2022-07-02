@@ -38,4 +38,9 @@ public class GameManager : MonoBehaviour
         Debug.Log("Score" + score);
         textComponent.text = "Score:" + score;
     }
+
+    public void ChangeScene(string nextScene)
+    {
+        SceneManager.LoadScene(nextScene);
+    }
 }

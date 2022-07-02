@@ -12,6 +12,7 @@ public class GManager : MonoBehaviour
     //パネルを登録
     public GameObject clearPanel;
     public GameObject gameoverPanel;
+    public GameObject button;
 
     public int gameScene = 0; //0:play,1:clear,2:gameover
 
@@ -21,6 +22,7 @@ public class GManager : MonoBehaviour
         //パネルを隠す
         clearPanel.SetActive(false);
         gameoverPanel.SetActive(false);
+        button.SetActive(false);
     }
 
     // Update is called once per frame
@@ -34,6 +36,7 @@ public class GManager : MonoBehaviour
         {
             gameScene = 1;
             clearPanel.SetActive(true);
+            button.SetActive(true);
         }
 
         player = GameObject.FindGameObjectsWithTag("Player");
@@ -45,6 +48,7 @@ public class GManager : MonoBehaviour
                 GameObject.Destroy(enemy[i]);
             }
             gameoverPanel.SetActive(true);
+            button.SetActive(true);
         }
     }
 }
